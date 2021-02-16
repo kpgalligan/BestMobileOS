@@ -1,3 +1,5 @@
 package me.bradyaiello.library
 
-expect fun bestMobileOS(): String
+expect object BestMobileOS {
+    fun bestMobileOS(): String
+}

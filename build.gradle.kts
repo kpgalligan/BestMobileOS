@@ -62,4 +62,5 @@ multiplatformSwiftPackage {
     targetPlatforms {
         iOS { v("13") }
     }
+    outputDirectory(File(projectDir, "../BestMobileOSPackage"))
 }

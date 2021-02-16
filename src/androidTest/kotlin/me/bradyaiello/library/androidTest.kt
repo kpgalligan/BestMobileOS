@@ -7,6 +7,6 @@ class AndroidGreetingTest {
 
     @Test
     fun testExample() {
-        assertTrue("Check Android is mentioned", bestMobileOS().contains("Android"))
+        assertTrue("Check Android is mentioned", BestMobileOS.bestMobileOS().contains("Android"))
     }
 }

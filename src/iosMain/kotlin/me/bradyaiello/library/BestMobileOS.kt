@@ -1,6 +1,6 @@
 package me.bradyaiello.library
 
 
-import platform.UIKit.UIDevice
-
-actual fun bestMobileOS(): String = "iOS"
+actual object BestMobileOS {
+    actual fun bestMobileOS(): String = "iOS"
+}

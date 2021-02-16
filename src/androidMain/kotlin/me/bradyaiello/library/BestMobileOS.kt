@@ -1,3 +1,5 @@
 package me.bradyaiello.library
 
-actual fun bestMobileOS(): String = "Android"
+actual object BestMobileOS {
+    actual fun bestMobileOS(): String = "Android"
+}
