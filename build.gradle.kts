@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "me.bradyaiello"
-version = "1.0-SNAPSHOT"
+version = "1.0.1"
 
 repositories {
     google()
@@ -60,7 +60,7 @@ multiplatformSwiftPackage {
     packageName("BestMobileOS")
     swiftToolsVersion("5.3")
     targetPlatforms {
-        iOS { v("13") }
+        iOS { v("11") }
     }
     outputDirectory(File(projectDir, "../BestMobileOSPackage"))
 }
