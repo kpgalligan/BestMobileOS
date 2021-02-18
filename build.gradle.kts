@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform") version "1.4.30"
-    id("com.android.library")
+//    id("com.android.library")
     id("maven-publish")
     id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
@@ -15,8 +15,15 @@ repositories {
 }
 
 kotlin {
-    android()
-    iosX64("ios") {
+//    android()
+    iosX64 {
+        binaries {
+            framework {
+                baseName = "BestMobileOS"
+            }
+        }
+    }
+    iosArm64 {
         binaries {
             framework {
                 baseName = "BestMobileOS"
@@ -31,30 +38,28 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting {
-            dependencies {
-                implementation("com.google.android.material:material:1.3.0")
-            }
+
+        val iosMain = maybeCreate("iosMain").apply {
+            dependsOn(commonMain)
         }
-        val androidTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.1")
-            }
+
+        val iosX64Main = maybeCreate("iosX64Main").apply {
+            dependsOn(iosMain)
         }
-        val iosMain by getting
-        val iosTest by getting
+        val iosArm64Main = maybeCreate("iosArm64Main").apply {
+            dependsOn(iosMain)
+        }
     }
 }
 
-android {
-    compileSdkVersion(29)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(30)
-    }
-}
+//android {
+//    compileSdkVersion(29)
+//    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+//    defaultConfig {
+//        minSdkVersion(24)
+//        targetSdkVersion(30)
+//    }
+//}
 
 multiplatformSwiftPackage {
     packageName("BestMobileOS")
